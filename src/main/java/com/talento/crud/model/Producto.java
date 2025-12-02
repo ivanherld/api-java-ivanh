@@ -1,6 +1,7 @@
 package com.talento.crud.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,8 @@ import jakarta.persistence.GenerationType;
 @Getter @Setter
 @AllArgsConstructor 
 @NoArgsConstructor
+@Builder
+@Entity
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

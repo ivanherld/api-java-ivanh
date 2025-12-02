@@ -7,6 +7,7 @@ import java.util.List;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +18,7 @@ import jakarta.persistence.GenerationType;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Entity
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
