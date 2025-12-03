@@ -24,6 +24,13 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
+    public ProductoDTO traerProductoPorId(Long id) {
+        Producto prod = repo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Producto no encontrado con id: " + id));
+        return Mapper.toDTO(prod);
+    }
+
+    @Override
     public ProductoDTO crearProducto(ProductoDTO productoDto) {
 
         Producto prod = Producto.builder()

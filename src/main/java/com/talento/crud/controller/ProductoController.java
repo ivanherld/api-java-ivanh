@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talento.crud.dto.ProductoDTO;
 import com.talento.crud.service.IProductoService;
 
+@CrossOrigin(origins = "*") // Permite solicitudes desde cualquier origen (CORS)
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {
@@ -27,6 +29,12 @@ public class ProductoController {
     @GetMapping
     public ResponseEntity<List<ProductoDTO>> getAllProducts() {
         return ResponseEntity.ok(productoService.traerProductos());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductoDTO> getProductById(@PathVariable Long id) {
+        ProductoDTO productoDto = productoService.traerProductoPorId(id);
+        return ResponseEntity.ok(productoDto);
     }
 
     @PostMapping
