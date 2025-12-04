@@ -117,5 +117,5 @@ Ejecuta tests:
 ```
 Agrega tests de servicio/repositorio y de controlador (MockMvc) para asegurar el CRUD.
 
-## 
-Uso educativo/demostración. Ajusta según tus necesidades.
+## Autor
+Herold Iván.

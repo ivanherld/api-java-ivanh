@@ -11,6 +11,7 @@ import com.talento.crud.dto.VentaDTO;
 public interface IVentaService {
 
     List<VentaDTO> traerVentas();
+    VentaDTO traerVentaPorId(Long id);
     VentaDTO crearVenta(VentaDTO ventaDto);
     VentaDTO actualizarVenta(Long id, VentaDTO ventaDto);
     void eliminarVenta(Long id);

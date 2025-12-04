@@ -39,8 +39,16 @@ public class VentaService implements IVentaService {
     }
 
     @Override
+    public VentaDTO traerVentaPorId(Long id) {
+        Venta v = ventaRepo.findById(id).orElse(null);
+        if (v == null) {
+            throw new RuntimeException("Venta con ID " + id + " no encontrada");
+        }
+        return Mapper.toDTO(v);
+    }
+
+    @Override
     public VentaDTO crearVenta(VentaDTO ventaDto) {
-        
         //Validaciones
         if (ventaDto == null) throw new IllegalArgumentException("El objeto ventaDto no puede ser nulo");
         if (ventaDto.getDetalles() == null || ventaDto.getDetalles().isEmpty()) {

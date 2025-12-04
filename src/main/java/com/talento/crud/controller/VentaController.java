@@ -32,6 +32,12 @@ public class VentaController {
         return ResponseEntity.ok(ventaService.traerVentas());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<VentaDTO> getSaleById(@PathVariable Long id) {
+        VentaDTO ventaDto = ventaService.traerVentaPorId(id);
+        return ResponseEntity.ok(ventaDto);
+    }
+
     @PostMapping
     public ResponseEntity<VentaDTO> createSale(@RequestBody VentaDTO ventaDto) {
         VentaDTO creado = ventaService.crearVenta(ventaDto);

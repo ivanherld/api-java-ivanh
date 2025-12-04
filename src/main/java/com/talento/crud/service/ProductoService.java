@@ -31,6 +31,11 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
+    public List<ProductoDTO> traerProductosPorCategoria(String categoria) {
+        return repo.findByCategoria(categoria).stream().map(Mapper::toDTO).toList();
+    }
+
+    @Override
     public ProductoDTO crearProducto(ProductoDTO productoDto) {
 
         Producto prod = Producto.builder()
